@@ -15,7 +15,8 @@ public class CustomerMapper {
                 customer.getStreetNumber(),
                 customer.getPostCode(),
                 customer.getCity(),
-                customer.getPhoneNumber());
+                customer.getPhoneNumber(),
+                customer.getId().toString());
         return customerDto;
     }
 

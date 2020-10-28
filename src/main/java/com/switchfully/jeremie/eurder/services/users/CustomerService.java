@@ -19,9 +19,9 @@ public class CustomerService {
 
 
     public Customer registerCustomer(Customer customer) {
+        validationService.validationAddress(customer);
         validationService.nameValidation(customer);
         validationService.emailValidation(customer);
-        validationService.addressValidation(customer);
         validationService.phoneNumberValidation(customer);
         return userDatabase.addCustomer(customer);
 

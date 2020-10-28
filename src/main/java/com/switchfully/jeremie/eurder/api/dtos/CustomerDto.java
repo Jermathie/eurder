@@ -11,9 +11,10 @@ public class CustomerDto {
     private final String postCode;
     private final String city;
     private final String phoneNumber;
+    private final String id;
 
 
-    public CustomerDto(String firstName, String lastName, String emailAddress, String streetName, String streetNumber, String postCode, String city, String phoneNumber) {
+    public CustomerDto(String firstName, String lastName, String emailAddress, String streetName, String streetNumber, String postCode, String city, String phoneNumber, String id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
@@ -22,6 +23,7 @@ public class CustomerDto {
         this.postCode = postCode;
         this.city = city;
         this.phoneNumber = phoneNumber;
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -54,5 +56,9 @@ public class CustomerDto {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public String getId() {
+        return id;
     }
 }

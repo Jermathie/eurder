@@ -35,7 +35,8 @@ public class ValidationService {
         }
     }
 
-    public void addressValidation(Customer customer) {
+
+    public void validationAddress(Customer customer) {
         if (customer.getStreetName() == null || customer.getStreetName().equals("")) {
             throw new IllegalArgumentException("Street name can't be empty");
         }
