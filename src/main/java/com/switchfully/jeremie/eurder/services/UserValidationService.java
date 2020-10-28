@@ -1,12 +1,15 @@
 package com.switchfully.jeremie.eurder.services;
 
+import com.switchfully.jeremie.eurder.domain.users.Admin;
 import com.switchfully.jeremie.eurder.domain.users.Customer;
+import com.switchfully.jeremie.eurder.exceptions.AdminPrivilegeException;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 @Service
-public class ValidationService {
+public class UserValidationService {
 
     public boolean isValidEmail(String email) {
         String regex = "^(.+)@(.+)$";
@@ -51,6 +54,30 @@ public class ValidationService {
         }
         if (customer.getCity() == null || customer.getCity().equals("")) {
             throw new IllegalArgumentException("Post code can't be empty");
+        }
+    }
+
+    public boolean isValidUUID(String string) {
+        try {
+            UUID.fromString(string);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
+
+    public void getAllCustomerValidation(String checkerId, CustomerService customerService) {
+        if (!isValidUUID(checkerId)) {
+            throw new IllegalArgumentException("Invalid UUID id");
+        }
+        UUID adminId = UUID.fromString(checkerId);
+
+        if (!customerService.userDatabase.userExists(adminId)) {
+            throw new IllegalArgumentException("this user doesn't exist");
+        }
+
+        if (customerService.userDatabase.getUserType(adminId) != Admin.class) {
+            throw new AdminPrivilegeException("Only an admin can view all members.");
         }
     }
 }

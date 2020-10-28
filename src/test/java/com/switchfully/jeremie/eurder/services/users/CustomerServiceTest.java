@@ -2,11 +2,10 @@ package com.switchfully.jeremie.eurder.services.users;
 
 import com.switchfully.jeremie.eurder.domain.users.Customer;
 import com.switchfully.jeremie.eurder.repesitory.UserDatabase;
-import com.switchfully.jeremie.eurder.services.ValidationService;
+import com.switchfully.jeremie.eurder.services.CustomerService;
+import com.switchfully.jeremie.eurder.services.UserValidationService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerServiceTest {
     @Test
@@ -15,8 +14,8 @@ class CustomerServiceTest {
                 "1000", "Brussels", "023522536");
 
         UserDatabase userDatabase = new UserDatabase();
-        ValidationService validationService = new ValidationService();
-        CustomerService customerService = new CustomerService(userDatabase, validationService);
+        UserValidationService userValidationService = new UserValidationService();
+        CustomerService customerService = new CustomerService(userDatabase, userValidationService);
         customerService.registerCustomer(customer);
 
         Assertions.assertEquals(userDatabase.getUser(customer.getId()), customer);
@@ -27,8 +26,8 @@ class CustomerServiceTest {
                 "1000", "Brussels", "023522536");
 
         UserDatabase userDatabase = new UserDatabase();
-        ValidationService validationService = new ValidationService();
-        CustomerService customerService = new CustomerService(userDatabase, validationService);
+        UserValidationService userValidationService = new UserValidationService();
+        CustomerService customerService = new CustomerService(userDatabase, userValidationService);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> customerService.registerCustomer(customer));
     }
@@ -38,8 +37,8 @@ class CustomerServiceTest {
                 "1000", "Brussels", "023522536");
 
         UserDatabase userDatabase = new UserDatabase();
-        ValidationService validationService = new ValidationService();
-        CustomerService customerService = new CustomerService(userDatabase, validationService);
+        UserValidationService userValidationService = new UserValidationService();
+        CustomerService customerService = new CustomerService(userDatabase, userValidationService);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> customerService.registerCustomer(customer));
     }
@@ -49,8 +48,8 @@ class CustomerServiceTest {
                 "1000", "Brussels", "023522536");
 
         UserDatabase userDatabase = new UserDatabase();
-        ValidationService validationService = new ValidationService();
-        CustomerService customerService = new CustomerService(userDatabase, validationService);
+        UserValidationService userValidationService = new UserValidationService();
+        CustomerService customerService = new CustomerService(userDatabase, userValidationService);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> customerService.registerCustomer(customer));
     }
@@ -60,8 +59,8 @@ class CustomerServiceTest {
                 "1000", "Brussels", "023522536");
 
         UserDatabase userDatabase = new UserDatabase();
-        ValidationService validationService = new ValidationService();
-        CustomerService customerService = new CustomerService(userDatabase, validationService);
+        UserValidationService userValidationService = new UserValidationService();
+        CustomerService customerService = new CustomerService(userDatabase, userValidationService);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> customerService.registerCustomer(customer));
     }
@@ -71,8 +70,8 @@ class CustomerServiceTest {
                 null, "Brussels", "023522536");
 
         UserDatabase userDatabase = new UserDatabase();
-        ValidationService validationService = new ValidationService();
-        CustomerService customerService = new CustomerService(userDatabase, validationService);
+        UserValidationService userValidationService = new UserValidationService();
+        CustomerService customerService = new CustomerService(userDatabase, userValidationService);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> customerService.registerCustomer(customer));
     }
@@ -82,8 +81,8 @@ class CustomerServiceTest {
                 "100", "Brussels", "023522536");
 
         UserDatabase userDatabase = new UserDatabase();
-        ValidationService validationService = new ValidationService();
-        CustomerService customerService = new CustomerService(userDatabase, validationService);
+        UserValidationService userValidationService = new UserValidationService();
+        CustomerService customerService = new CustomerService(userDatabase, userValidationService);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> customerService.registerCustomer(customer));
     }
@@ -94,8 +93,8 @@ class CustomerServiceTest {
                 "1000", null, "023522536");
 
         UserDatabase userDatabase = new UserDatabase();
-        ValidationService validationService = new ValidationService();
-        CustomerService customerService = new CustomerService(userDatabase, validationService);
+        UserValidationService userValidationService = new UserValidationService();
+        CustomerService customerService = new CustomerService(userDatabase, userValidationService);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> customerService.registerCustomer(customer));
     }
@@ -105,8 +104,8 @@ class CustomerServiceTest {
                 "1000", "Brussels", null);
 
         UserDatabase userDatabase = new UserDatabase();
-        ValidationService validationService = new ValidationService();
-        CustomerService customerService = new CustomerService(userDatabase, validationService);
+        UserValidationService userValidationService = new UserValidationService();
+        CustomerService customerService = new CustomerService(userDatabase, userValidationService);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> customerService.registerCustomer(customer));
     }
@@ -116,8 +115,8 @@ class CustomerServiceTest {
                 "1000", "Brussels", "023522536");
 
         UserDatabase userDatabase = new UserDatabase();
-        ValidationService validationService = new ValidationService();
-        CustomerService customerService = new CustomerService(userDatabase, validationService);
+        UserValidationService userValidationService = new UserValidationService();
+        CustomerService customerService = new CustomerService(userDatabase, userValidationService);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> customerService.registerCustomer(customer));
     }

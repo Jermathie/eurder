@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Repository
 public class UserDatabase {
@@ -29,6 +31,24 @@ public class UserDatabase {
 
     public User getUser(UUID id) {
         return userDatabase.get(id);
+    }
+
+    public boolean userExists(UUID id) {
+        return userDatabase.containsKey(id);
+    }
+
+    public Class<? extends User> getUserType(UUID creatorId) {
+        return getUser(creatorId).getClass();
+    }
+
+    public List<Customer> getAllCustomers() {
+        if (userDatabase.isEmpty()){
+            throw new IllegalArgumentException("There are no customers registered");
+        }
+        return userDatabase.values().stream()
+                .filter(user -> user.getClass().equals(Customer.class))
+                .map(customer -> (Customer) customer)
+                .collect(Collectors.toList());
     }
 
 }

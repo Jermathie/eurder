@@ -4,6 +4,9 @@ import com.switchfully.jeremie.eurder.api.dtos.CustomerDto;
 import com.switchfully.jeremie.eurder.domain.users.Customer;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class CustomerMapper {
 
@@ -31,5 +34,21 @@ public class CustomerMapper {
                 customerDto.getPhoneNumber());
         return customer;
     }
+
+    public List<CustomerDto> convertCustomerListToCustomerDtoList(List<Customer> customerListToConvert){
+        return customerListToConvert.stream()
+                .map(customer -> new CustomerDto(customer.getFirstName(),
+                        customer.getLastName(),
+                        customer.getEmailAddress(),
+                        customer.getStreetName(),
+                        customer.getStreetNumber(),
+                        customer.getPostCode(),
+                        customer.getCity(),
+                        customer.getPhoneNumber(),
+                        customer.getId().toString()))
+                .collect(Collectors.toList());
+    }
+
+
 
 }

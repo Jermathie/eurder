@@ -3,7 +3,7 @@ package com.switchfully.jeremie.eurder.api.controller;
 import com.switchfully.jeremie.eurder.api.dtos.CustomerDto;
 import com.switchfully.jeremie.eurder.api.mappers.CustomerMapper;
 import com.switchfully.jeremie.eurder.domain.users.Customer;
-import com.switchfully.jeremie.eurder.services.users.CustomerService;
+import com.switchfully.jeremie.eurder.services.CustomerService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
