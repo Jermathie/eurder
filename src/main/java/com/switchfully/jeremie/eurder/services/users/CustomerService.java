@@ -11,11 +11,12 @@ public class CustomerService {
     UserDatabase userDatabase;
     ValidationService validationService;
 
-
     @Autowired
-    public CustomerService(UserDatabase userDatabase) {
+    public CustomerService(UserDatabase userDatabase, ValidationService validationService) {
         this.userDatabase = userDatabase;
+        this.validationService = validationService;
     }
+
 
     public Customer registerCustomer(Customer customer) {
         validationService.nameValidation(customer);

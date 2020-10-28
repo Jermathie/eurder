@@ -9,6 +9,7 @@ public abstract class User {
     private final String emailAddress;
 
     public User(String firstName, String lastName, String emailAddress) {
+        this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;

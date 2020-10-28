@@ -1,9 +1,11 @@
 package com.switchfully.jeremie.eurder.services;
 
 import com.switchfully.jeremie.eurder.domain.users.Customer;
+import org.springframework.stereotype.Service;
 
 import java.util.regex.Pattern;
 
+@Service
 public class ValidationService {
 
     public boolean isValidEmail(String email) {

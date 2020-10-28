@@ -2,6 +2,7 @@ package com.switchfully.jeremie.eurder.repesitory;
 
 import com.switchfully.jeremie.eurder.domain.users.Admin;
 import com.switchfully.jeremie.eurder.domain.users.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -12,21 +13,21 @@ import java.util.UUID;
 public class UserDatabase {
     Map<UUID, User> userDatabase;
 
-
+    @Autowired
     public UserDatabase() {
         this.userDatabase = new HashMap<>();
     }
 
-    public Customer addCustomer(Customer customer){
+    public Customer addCustomer(Customer customer) {
         userDatabase.put(customer.getId(), customer);
         return (Customer) userDatabase.get(customer.getId());
     }
 
-    public void addAdmin(Admin admin){
+    public void addAdmin(Admin admin) {
         userDatabase.put(admin.getId(), admin);
     }
 
-    public User getUser(UUID id){
+    public User getUser(UUID id) {
         return userDatabase.get(id);
     }
 

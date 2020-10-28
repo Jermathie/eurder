@@ -4,11 +4,11 @@ import com.switchfully.jeremie.eurder.api.dtos.CustomerDto;
 import com.switchfully.jeremie.eurder.api.mappers.CustomerMapper;
 import com.switchfully.jeremie.eurder.domain.users.Customer;
 import com.switchfully.jeremie.eurder.services.users.CustomerService;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/customers")
+@RequestMapping(path = "/")
 public class CustomerController {
     private final CustomerService customerService;
     private final CustomerMapper customerMapper;
@@ -18,8 +18,7 @@ public class CustomerController {
         this.customerMapper = customerMapper;
     }
 
-    @PostMapping(consumes = "application/json", produces = "application/json")
-    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(value = "/customers", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public CustomerDto createCustomerAccount(@RequestBody CustomerDto customerDto){
         Customer customer = customerMapper.ConvertCustomerDtoToCustomer(customerDto);
         Customer customerCreated = customerService.registerCustomer(customer);
