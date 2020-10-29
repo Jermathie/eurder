@@ -1,11 +1,15 @@
 package com.switchfully.jeremie.eurder.services;
 
+import com.switchfully.jeremie.eurder.domain.users.Admin;
 import com.switchfully.jeremie.eurder.domain.users.Customer;
+import com.switchfully.jeremie.eurder.domain.users.User;
+import com.switchfully.jeremie.eurder.exceptions.AdminPrivilegeException;
 import com.switchfully.jeremie.eurder.repesitory.UserDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CustomerService {
@@ -32,11 +36,15 @@ public class CustomerService {
         return userDatabase.getAllCustomers();
     }
 
-    public Customer getCustomerById(String customerId){
-        if (!userValidationService.isValidUUID(customerId)){
+    public User getCustomerById(UUID customerId, UUID userId){
+        if (!userValidationService.isValidUUID(customerId.toString())){
             throw new IllegalArgumentException("Invalid Customer ID.");
         }
-        return userDatabase.getCustomerById(customerId);
+        if ((userDatabase.userExists(userId)) && (userDatabase.getUserType(userId) != Admin.class)) {
+            throw new AdminPrivilegeException("Only admin can see the customer account! You are not an admin.");
+        }
+
+        return userDatabase.getUser(customerId);
     }
 
 }

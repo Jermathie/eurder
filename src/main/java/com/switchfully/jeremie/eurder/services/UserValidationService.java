@@ -81,4 +81,13 @@ public class UserValidationService {
             throw new AdminPrivilegeException("Only an admin can view all members.");
         }
     }
+
+    public void itemAdminValidation(UUID userId, ItemService itemService) {
+        if (!isValidUUID(userId.toString()))
+            throw new IllegalArgumentException("The provided Id is not valid!");
+
+        if ((itemService.userDatabase.userExists(userId)) && (itemService.userDatabase.getUserType(userId) != Admin.class)) {
+            throw new AdminPrivilegeException("Only admin can add new items! You are not an admin.");
+        }
+    }
 }

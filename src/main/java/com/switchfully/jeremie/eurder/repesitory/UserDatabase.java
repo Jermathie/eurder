@@ -54,11 +54,11 @@ public class UserDatabase {
                 .collect(Collectors.toList());
     }
 
-    public Customer getCustomerById(String customerId) {
-        NullChecker.checkArgumentForNull(customerId);
-        Customer result = (Customer) userDatabase.get(UUID.fromString(customerId));
-        if (result == null) throw new CustomerNotFoundException("The customer with ID: " + customerId + " does not exist!");
-        return result;
+    public User getCustomerById(UUID customerId){
+        if (userDatabase.isEmpty()){
+            throw new IllegalArgumentException("There are no customers registered");
+        }
+        return userDatabase.get(customerId);
     }
 
 }

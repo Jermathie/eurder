@@ -1,6 +1,6 @@
-package com.switchfully.jeremie.eurder.domain;
+package com.switchfully.jeremie.eurder.api.dtos;
 
-public class Item {
+public class ItemDto {
 
     private String id;
     private String name;
@@ -8,7 +8,7 @@ public class Item {
     private double price;
     private int stockAmount;
 
-    public Item(String id, String name, String description, double price, int stockAmount) {
+    public ItemDto(String id, String name, String description, double price, int stockAmount) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -35,6 +35,4 @@ public class Item {
     public int getStockAmount() {
         return stockAmount;
     }
-
-
 }
