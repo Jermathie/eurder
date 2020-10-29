@@ -70,6 +70,7 @@ public class UserValidationService {
         if (!isValidUUID(checkerId)) {
             throw new IllegalArgumentException("Invalid UUID id");
         }
+
         UUID adminId = UUID.fromString(checkerId);
 
         if (!customerService.userDatabase.userExists(adminId)) {

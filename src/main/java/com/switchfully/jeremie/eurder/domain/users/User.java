@@ -1,4 +1,4 @@
-package com.switchfully.jeremie.eurder.repesitory;
+package com.switchfully.jeremie.eurder.domain.users;
 
 import java.util.UUID;
 

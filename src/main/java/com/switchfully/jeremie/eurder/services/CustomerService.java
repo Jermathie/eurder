@@ -18,12 +18,6 @@ public class CustomerService {
         this.userValidationService = userValidationService;
     }
 
-    public List<Customer> getAllCustomers(String checkerId) {
-        userValidationService.getAllCustomerValidation(checkerId, this);
-        return userDatabase.getAllCustomers();
-    }
-
-
     public Customer registerCustomer(Customer customer) {
         userValidationService.validationAddress(customer);
         userValidationService.nameValidation(customer);
@@ -31,6 +25,18 @@ public class CustomerService {
         userValidationService.phoneNumberValidation(customer);
         return userDatabase.addCustomer(customer);
 
+    }
+
+    public List<Customer> getAllCustomers(String checkerId) {
+        userValidationService.getAllCustomerValidation(checkerId, this);
+        return userDatabase.getAllCustomers();
+    }
+
+    public Customer getCustomerById(String customerId){
+        if (!userValidationService.isValidUUID(customerId)){
+            throw new IllegalArgumentException("Invalid Customer ID.");
+        }
+        return userDatabase.getCustomerById(customerId);
     }
 
 }

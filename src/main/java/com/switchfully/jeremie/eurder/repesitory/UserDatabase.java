@@ -2,6 +2,9 @@ package com.switchfully.jeremie.eurder.repesitory;
 
 import com.switchfully.jeremie.eurder.domain.users.Admin;
 import com.switchfully.jeremie.eurder.domain.users.Customer;
+import com.switchfully.jeremie.eurder.domain.users.User;
+import com.switchfully.jeremie.eurder.exceptions.CustomerNotFoundException;
+import com.switchfully.jeremie.eurder.exceptions.NullChecker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -49,6 +52,13 @@ public class UserDatabase {
                 .filter(user -> user.getClass().equals(Customer.class))
                 .map(customer -> (Customer) customer)
                 .collect(Collectors.toList());
+    }
+
+    public Customer getCustomerById(String customerId) {
+        NullChecker.checkArgumentForNull(customerId);
+        Customer result = (Customer) userDatabase.get(UUID.fromString(customerId));
+        if (result == null) throw new CustomerNotFoundException("The customer with ID: " + customerId + " does not exist!");
+        return result;
     }
 
 }

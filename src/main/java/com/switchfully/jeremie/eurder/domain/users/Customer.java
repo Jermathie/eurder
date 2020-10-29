@@ -1,7 +1,5 @@
 package com.switchfully.jeremie.eurder.domain.users;
 
-import com.switchfully.jeremie.eurder.repesitory.User;
-
 import java.util.UUID;
 
 public class Customer extends User {
