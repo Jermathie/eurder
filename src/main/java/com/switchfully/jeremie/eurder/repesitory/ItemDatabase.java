@@ -1,6 +1,6 @@
 package com.switchfully.jeremie.eurder.repesitory;
 
-import com.switchfully.jeremie.eurder.domain.Item;
+import com.switchfully.jeremie.eurder.domain.order.Item;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

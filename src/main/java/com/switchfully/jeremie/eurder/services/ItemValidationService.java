@@ -1,7 +1,9 @@
 package com.switchfully.jeremie.eurder.services;
 
-import com.switchfully.jeremie.eurder.domain.Item;
+import com.switchfully.jeremie.eurder.domain.order.Item;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ItemValidationService {
     public void ItemStateValidation(Item item) {
         if (item.getId() == null || item.getId().equals("")) {

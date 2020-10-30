@@ -1,7 +1,7 @@
 package com.switchfully.jeremie.eurder.services.items;
 
 import com.switchfully.jeremie.eurder.api.mappers.ItemMapper;
-import com.switchfully.jeremie.eurder.domain.Item;
+import com.switchfully.jeremie.eurder.domain.order.Item;
 import com.switchfully.jeremie.eurder.domain.users.Admin;
 import com.switchfully.jeremie.eurder.domain.users.Customer;
 import com.switchfully.jeremie.eurder.exceptions.AdminPrivilegeException;
@@ -14,8 +14,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ItemServiceTest {
     @Test

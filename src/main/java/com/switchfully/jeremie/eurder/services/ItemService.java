@@ -1,7 +1,7 @@
 package com.switchfully.jeremie.eurder.services;
 
 import com.switchfully.jeremie.eurder.api.mappers.ItemMapper;
-import com.switchfully.jeremie.eurder.domain.Item;
+import com.switchfully.jeremie.eurder.domain.order.Item;
 import com.switchfully.jeremie.eurder.repesitory.ItemDatabase;
 import com.switchfully.jeremie.eurder.repesitory.UserDatabase;
 import org.springframework.beans.factory.annotation.Autowired;

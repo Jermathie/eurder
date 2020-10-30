@@ -4,7 +4,7 @@ import com.switchfully.jeremie.eurder.api.dtos.CustomerDto;
 import com.switchfully.jeremie.eurder.api.dtos.ItemDto;
 import com.switchfully.jeremie.eurder.api.mappers.CustomerMapper;
 import com.switchfully.jeremie.eurder.api.mappers.ItemMapper;
-import com.switchfully.jeremie.eurder.domain.Item;
+import com.switchfully.jeremie.eurder.domain.order.Item;
 import com.switchfully.jeremie.eurder.domain.users.Customer;
 import com.switchfully.jeremie.eurder.domain.users.User;
 import com.switchfully.jeremie.eurder.services.AdminService;

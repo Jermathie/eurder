@@ -2,7 +2,7 @@ package com.switchfully.jeremie.eurder.api.mappers;
 
 
 import com.switchfully.jeremie.eurder.api.dtos.ItemDto;
-import com.switchfully.jeremie.eurder.domain.Item;
+import com.switchfully.jeremie.eurder.domain.order.Item;
 import org.springframework.stereotype.Component;
 
 @Component

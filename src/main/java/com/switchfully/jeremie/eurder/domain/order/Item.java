@@ -1,12 +1,12 @@
-package com.switchfully.jeremie.eurder.domain;
+package com.switchfully.jeremie.eurder.domain.order;
 
 public class Item {
 
-    private String id;
-    private String name;
-    private String description;
-    private double price;
-    private int stockAmount;
+    private final String id;
+    private final String name;
+    private final String description;
+    private final double price;
+    private final int stockAmount;
 
     public Item(String id, String name, String description, double price, int stockAmount) {
         this.id = id;
